@@ -203,7 +203,7 @@ registerWinners = (items, id) => {
           savedCount++;
           results.push(result);
           if (savedCount == count) {
-            sql = 'update ' + preocess.env.DB_NAME + '.tournaments (closed) values(?) where id = ?;';
+            sql = 'update ' + process.env.DB_NAME + '.tournaments set closed=? where id = ? limit 1;';
             connection.query(sql, [1, id], (err, result) => {
               if (err) {
                 reject(err);

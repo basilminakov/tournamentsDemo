@@ -24,14 +24,18 @@ router.get('/joinTournament/:tournamentId/:playerId/*', (req, res, next) => {
     let tournamentId = params.tournamentId;
     let backers = [];
     if (params[0]) {
-        backers = params[0].split('\/');
+        backers = params[0].split('\/').filter(value => {
+            if (value) {
+                return value;
+            }
+        });
     }
     let tournament = new Tournament(tournamentId);
     tournament.loadFromDB()
     .then(() => {
         tournament.addPlayers(playerId, backers)
         .then(status =>  {
-            res.status(status).end()
+            res.status(status || 200).end()
         });
     })
     .catch(err => {
