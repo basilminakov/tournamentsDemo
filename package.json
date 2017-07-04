@@ -1,0 +1,17 @@
+{
+  "name": "tournament",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "./run.sh"
+  },
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "cors": "^2.8.3",
+    "debug": "~2.6.3",
+    "execsql": "0.0.3",
+    "express": "~4.15.2",
+    "morgan": "~1.8.1",
+    "mysql": "^2.13.0"
+  }
+}
