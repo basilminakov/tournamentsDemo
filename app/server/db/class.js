@@ -1,4 +1,5 @@
 var mysql = require('mysql');
+var sleep = require('system-sleep');
 
 var pool = mysql.createPool({
   host: process.env.MYSQL_HOST,
@@ -8,6 +9,38 @@ var pool = mysql.createPool({
   connectionLimit: 40,
   multipleStatements: true
 });
+
+var connection = null;
+var isServerReady = false;
+
+doPing = () => {
+  return new Promise((resolve, reject) => {
+    pool.getConnection((err, conn) => {
+      if (conn) {
+        connection = conn;
+        connection.ping(err => {
+          connection.destroy();
+          if (err) {
+            reject(false);
+          }
+          resolve(true);
+        });
+      }
+    })
+  });
+}
+  
+while (isServerReady != true) {
+  doPing()
+    .then((value) => {
+      isServerReady = isServerReady || value;
+      console.log("MySQL is ip:", isServerReady);
+    })
+    .catch(err => {
+      console.error(err);
+    });
+    sleep(4000);
+}
 
 createTables = () => {
   var fs = require('fs');

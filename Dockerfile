@@ -1,13 +1,9 @@
-FROM keymetrics/pm2-docker-alpine:8
+FROM keymetrics/pm2-docker-alpine:6
 
-ADD . /app
+ADD app/ /my_app/
 
-WORKDIR ./app
-
-VOLUME ./app
-
-RUN mkdir node_modules
+WORKDIR /my_app
 
 RUN npm install
 
-CMD ["pm2-docker", "start", "--auto-exit", "--env", "production", "process.yml"]
+CMD ["pm2-docker", "start", "--auto-exit", "--env", "production", "process.json"]
