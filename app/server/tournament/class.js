@@ -9,6 +9,7 @@ class Tournament {
         if (deposit) {
             this.deposit = deposit;
         }
+        this.closed = 0;
     }
 
     getId() {
@@ -17,6 +18,10 @@ class Tournament {
 
     getDeposit() {
         return this.deposit;
+    }
+
+    isCosed() {
+        return this.closed;
     }
 
     addPlayers (playerId, backers) {
@@ -90,6 +95,7 @@ class Tournament {
             db.getTournamentInfo(this.getId())
             .then(result => {
                 this.deposit = result[0].deposit || 0;
+                this.closed = result[0].closed;
                 return resolve();
             })
             .catch(err => {
