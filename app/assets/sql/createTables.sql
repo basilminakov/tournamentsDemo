@@ -1,4 +1,6 @@
-use Tournaments;
+CREATE DATABASE IF NOT EXISTS 'Tournaments';
+
+USE Tournaments;
 
 CREATE TABLE IF NOT EXISTS `players` (
   `playerId` varchar(7) NOT NULL,
