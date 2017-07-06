@@ -12,9 +12,9 @@ The app is installed and started!
 
 # Some notes about application behaviour.
 
-1. You should wait for some time in order to allow the mySQL server to start.
+1. You should wait for some time in order to allow the MySQL server to start.
 2. You are able to send the commands for the server using address of Docker machine (or localhost if Docker installed locally) with the port 3000 (by default).
 
 # IMPORTANT NOTE!!
 
-Since this is a kind of demo applications the MySQL databases is stored until the Docker container is alive. You'll have no data after restart container.
+Since this is a kind of demo application the MySQL databases is stored until the Docker container is alive. You'll have no data after container restarted.
