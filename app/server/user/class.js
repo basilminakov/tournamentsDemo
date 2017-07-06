@@ -1,12 +1,16 @@
 'use strict';
 
 var db = require('../db/class');
+const USER_ID_SIZE = 7;
 
 class User {
 
     constructor(id, balance) {
         this.DEFAULT_BALANCE = 0;
         this.balance = balance || this.DEFAULT_BALANCE;
+        if (id && id.length > USER_ID_SIZE) {
+            id = id.substr(0, USER_ID_SIZE);
+        }
         this.id = id;
     }
 
@@ -55,6 +59,9 @@ class User {
         return new Promise((resolve, reject) => {
             if (!id) {
                 return reject('No ID provided for new user!');
+            }
+            if (id.length > USER_ID_SIZE) {
+                id = id.substr(0, USER_ID_SIZE);
             }
             return db.getPlayersInfo(id)
             .then(result => {

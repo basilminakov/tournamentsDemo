@@ -3,8 +3,8 @@ var sleep = require('system-sleep');
 
 var pool = mysql.createPool({
   host: process.env.MYSQL_HOST,
-  user: process.env.MYSQL_USER,
-  password: process.env.MYSQL_PASS,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
   database: process.env.DB_NAME,
   connectionLimit: 40,
   multipleStatements: true
@@ -34,7 +34,7 @@ while (isServerReady != true) {
   doPing()
     .then((value) => {
       isServerReady = isServerReady || value;
-      console.log("MySQL is ip:", isServerReady);
+      console.log("MySQL is up:", isServerReady);
     })
     .catch(err => {
       console.error(err);

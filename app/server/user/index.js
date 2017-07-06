@@ -10,7 +10,7 @@ router.get('/take/:playerId/:points', (req, res, next) => {
         return player.loadFromDB()
         .then(dbUser => {
             player.setBalance(dbUser.balance);
-            if (points >= player.getBalance()) {
+            if (points > player.getBalance()) {
                 res.status(400);
                 res.end();
             }
