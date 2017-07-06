@@ -13,7 +13,7 @@ The app is installed and started!
 # Some notes about application behaviour.
 
 1. You should wait for some time in order to allow the mySQL server to start.
-2. You are able to send the commands for the server using address of Docker machine (or localhost if Docer installed locally) with the port 3000 (by default).
+2. You are able to send the commands for the server using address of Docker machine (or localhost if Docker installed locally) with the port 3000 (by default).
 
 # IMPORTANT NOTE!!
 
