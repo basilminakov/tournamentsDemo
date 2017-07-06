@@ -57,7 +57,7 @@ router.get('/balance/:userId', (req, res, next) => {
     })
     .catch(err => {
         res.status(500);
-        next(err);
+        res.end();
     })
 });
 
