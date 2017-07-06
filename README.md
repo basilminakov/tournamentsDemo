@@ -1,6 +1,3 @@
-<<<<<<< HEAD
- 
-=======
 # Description
 
 A demo application for processing a different kinds of points-based tournaments.
@@ -21,4 +18,3 @@ The app is installed and started!
 # IMPORTANT NOTE!!
 
 Since this is a kind of demo application the MySQL databases is stored until the Docker container is alive. You'll have no data after container restarted.
->>>>>>> 520cf6a16184c17ed2db2358d5ab23f368729a4d
