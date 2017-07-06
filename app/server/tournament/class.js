@@ -94,6 +94,9 @@ class Tournament {
             }             
             db.getTournamentInfo(this.getId())
             .then(result => {
+                if (!result[0]) {
+                    return reject('No tournament found with ID', this.getId());
+                }
                 this.deposit = result[0].deposit || 0;
                 this.closed = result[0].closed;
                 return resolve();

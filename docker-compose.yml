@@ -2,7 +2,7 @@ version: '2'
 services:
 
   app:
-    image: basilminakov/tournamentsback:2
+    image: basilminakov/tournamentsback:3
     depends_on:
       - mysql
     ports:

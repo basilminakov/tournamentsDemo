@@ -91,6 +91,9 @@ class User {
             }             
             db.getPlayersInfo(this.getId())
             .then(result => {
+                if (!result[0]) {
+                    return reject('No user found with ID', this.getId());
+                }
                 this.balance = result[0].balance || this.DEFAULT_BALANCE;
                 return resolve(this);
             })
